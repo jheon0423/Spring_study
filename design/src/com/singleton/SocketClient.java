@@ -3,7 +3,7 @@ package design.src.com.singleton;
 public class SocketClient {
     private static SocketClient socketClient = null;
 
-    private SocketClient(){
+    public SocketClient(){
 
     }
 
