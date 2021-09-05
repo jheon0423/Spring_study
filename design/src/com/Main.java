@@ -1,6 +1,8 @@
 package design.src.com;
 
-import design.src.com.proxy.Browser;
+//import design.src.com.proxy.Browser;
+import design.src.com.proxy.BrowserProxy;
+import design.src.com.proxy.IBrowser;
 
 // import design.src.com.adapter.AirConditioner;
 // import design.src.com.adapter.Cleaner;
