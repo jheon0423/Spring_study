@@ -1,25 +1,31 @@
 package design.src.com;
 
-import design.src.com.observer.*;
+import design.src.com.strategy.*;
 
 public class Main {
-    public static void main(String[] args){
-        Button button = new Button("버튼");
-
-        button.addListener(new IButtonListener(){
-            @Override
-            public void clickEvent(String event){
-                System.out.println(event);
-            }
-        });
-
-
-        button.click("메시지 전달 : click1");
-        button.click("메시지 전달 : click2");
-        button.click("메시지 전달 : click3");
-        button.click("메시지 전달 : click4");
-
-    }
-
     
+    public static void main(String[] args){
+        Encoder encoder = new Encoder();
+
+
+    //base64
+        EncodingStrategy base64 = new Base64Strategy();
+
+    //normal
+        EncodingStrategy normal = new NormalStrategy();
+
+        String message = "hello java";
+
+        encoder.setEncodingStrategy(base64);
+        String Base64Result = encoder.getMessage(message);
+        System.out.println(Base64Result);
+
+        encoder.setEncodingStrategy(normal);
+        String normalResult = encoder.getMessage(message);
+        System.out.println(normalResult);
+
+        encoder.setEncodingStrategy(new AppendStrategy());
+        String appendResult = encoder.getMessage(message);
+        System.out.println(appendResult);
+    }
 }
